@@ -26,8 +26,8 @@ jobs:
 
       - name: Buils ans push docker image to amazon ecr
         env: 
-          ECR_REGISTRY: ${{steps.login-ecr.output.registry}}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/${{secrets.REPOSITORY_NAME}}:${IMAGE_TAG} -f Dockerfile .
-          docker push $ECR_REGISTRY/${{secrets.REPOSITORY_NAME}}:${IMAGE_TAG}
+          docker push $ECR_REGISTRY/${{ secrets.REPOSITORY_NAME }}:${IMAGE_TAG}
