@@ -22,7 +22,7 @@ jobs:
 
       - name: Login to amazon ecr
         id: login-ecr
-        uses: aws-actions-amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@v2
 
       - name: Buils ans push docker image to amazon ecr
         env: 
